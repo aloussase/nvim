@@ -74,4 +74,13 @@ return {
       require('fidget').setup({})
     end
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      height = 5,
+      auto_open = true,
+      auto_close = true,
+    },
+  }
 }
