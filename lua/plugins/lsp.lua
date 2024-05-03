@@ -29,6 +29,15 @@ return {
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = args.buf })
         end
       })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        callback = function(args)
+          vim.lsp.buf.format({
+            bufnr = args.buffer,
+            async = false
+          })
+        end
+      })
     end
   },
   {
@@ -57,5 +66,12 @@ return {
         })
       })
     end
-  }
+  },
+  {
+    'j-hui/fidget.nvim',
+    tag = "v1.0.0",
+    config = function()
+      require('fidget').setup({})
+    end
+  },
 }

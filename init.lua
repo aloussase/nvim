@@ -35,11 +35,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- TODOs
--- Some LSP things:
---   - fidget
---   - lspsaga
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
