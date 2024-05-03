@@ -8,6 +8,9 @@ return {
       -- npm install -g @astrojs/language-server
       lsp.astro.setup({ capabilities = capabilities })
 
+      -- dotnet tool install --global csharp-ls
+      lsp.csharp_ls.setup({ capabilities = capabilities })
+
       lsp.lua_ls.setup({
         capabilities = capabilities,
         settings = {
@@ -27,15 +30,6 @@ return {
           vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, { buffer = args.buf })
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = args.buf })
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = args.buf })
-        end
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        callback = function(args)
-          vim.lsp.buf.format({
-            bufnr = args.buffer,
-            async = false
-          })
         end
       })
     end
