@@ -36,12 +36,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- TODOs
--- File Explorer
 -- Some LSP things:
 --   - fidget
 --   - lspsaga
--- vim-endwise
--- vim-cmp
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
