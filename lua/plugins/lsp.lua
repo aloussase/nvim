@@ -11,6 +11,9 @@ return {
       -- dotnet tool install --global csharp-ls
       lsp.csharp_ls.setup({ capabilities = capabilities })
 
+      -- npm install -g @tailwindcss/language-server
+      lsp.tailwindcss.setup({ capabilities = capabilities })
+
       lsp.lua_ls.setup({
         capabilities = capabilities,
         settings = {
