@@ -33,6 +33,12 @@ return {
           vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, { buffer = args.buf })
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = args.buf })
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { buffer = args.buf })
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
+          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = args.buf })
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = args.buf })
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = args.buf })
+          vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { buffer = args.buffer })
         end
       })
     end
