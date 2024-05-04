@@ -9,7 +9,23 @@ return {
       lsp.astro.setup({ capabilities = capabilities })
 
       -- dotnet tool install --global csharp-ls
-      lsp.csharp_ls.setup({ capabilities = capabilities })
+      -- lsp.csharp_ls.setup({ capabilities = capabilities })
+
+      lsp.omnisharp.setup({
+        capabilities = capabilities,
+        cmd = { "/home/aloussase/Projects/omnisharp/OmniSharp" },
+        settings = {
+          RoslynExtensionsOptions = {
+            enableImportCompletion = true,
+            enableAnalyzerSupport = true,
+          },
+          FormattingOptions = {
+            OrganizeImports = true,
+            WrappingPreserveSingleLine = false,
+            WrappingKeepStatementsOnSingleLine = false,
+          },
+        },
+      })
 
       -- npm install -g @tailwindcss/language-server
       lsp.tailwindcss.setup({ capabilities = capabilities })
@@ -41,7 +57,13 @@ return {
           vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { buffer = args.buffer })
         end
       })
-    end
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end
+      })
+    end,
   },
   {
     'hrsh7th/nvim-cmp',

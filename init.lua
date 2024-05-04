@@ -1,4 +1,5 @@
 vim.o.number      = true
+vim.o.warp        = false
 
 -- Identation
 vim.o.expandtab   = true

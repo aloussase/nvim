@@ -13,17 +13,16 @@ return {
           entry_prefix = ' ',
           selection_caret = ' ',
           sorting_strategy = 'ascending',
-          layout_strategy = 'grey',
+          layout_strategy = 'vertical',
           layout_config = {
             prompt_position = 'top',
             width = 0.6,
             height = 0.5,
-            preview_width = 0.6,
           },
         }
       })
 
-      telescope.load_extension('grey')
+      -- telescope.load_extension('grey')
 
       vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
