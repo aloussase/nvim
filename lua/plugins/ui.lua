@@ -30,4 +30,19 @@ return {
       },
     },
   },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require('bufferline').setup({
+        options = {
+          diagnostics = 'nvim_lsp',
+        },
+      })
+
+      vim.keymap.set('n', ']b', '<Cmd>BufferLineCycleNext<CR>', {})
+      vim.keymap.set('n', '[b', '<Cmd>BufferLineCyclePrev<CR>', {})
+    end
+  },
 }
