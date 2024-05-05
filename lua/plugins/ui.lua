@@ -10,7 +10,14 @@ return {
     'projekt0n/github-nvim-theme',
     config = function()
       vim.o.termguicolors = true
-      vim.cmd('colorscheme github_dark_dimmed')
+      -- vim.cmd('colorscheme github_dark_dimmed')
+    end
+  },
+  {
+    'marko-cerovac/material.nvim',
+    config = function()
+      vim.o.termguicolors = true
+      vim.cmd('colorscheme material-darker')
     end
   },
   {
