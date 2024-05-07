@@ -11,6 +11,8 @@ return {
       -- dotnet tool install --global csharp-ls
       -- lsp.csharp_ls.setup({ capabilities = capabilities })
 
+      lsp.dartls.setup({ capabilities = capabilities })
+
       lsp.omnisharp.setup({
         capabilities = capabilities,
         cmd = { "/home/aloussase/Projects/omnisharp/OmniSharp" },
