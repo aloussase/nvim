@@ -12,6 +12,7 @@ return {
       -- lsp.csharp_ls.setup({ capabilities = capabilities })
 
       lsp.dartls.setup({ capabilities = capabilities })
+      lsp.sourcekit.setup({ capabilities = capabilities })
 
       lsp.omnisharp.setup({
         capabilities = capabilities,
@@ -60,9 +61,16 @@ return {
         end
       })
 
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        callback = function()
-          vim.lsp.buf.format({ async = false })
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.server_capabilities.documentFormattingProvider then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              callback = function()
+                vim.lsp.buf.format({ async = false })
+              end
+            })
+          end
         end
       })
     end,
