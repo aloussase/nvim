@@ -14,6 +14,28 @@ return {
       lsp.dartls.setup({ capabilities = capabilities })
       lsp.sourcekit.setup({ capabilities = capabilities })
 
+      -- npm install -g typescript typescript-language-server
+      lsp.tsserver.setup({
+        capabilities = capabilities,
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "",
+              languages = { "javascript", "typescript", "vue" },
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue",
+        },
+      })
+
+      -- npm install -g @vue/language-server
+      lsp.volar.setup({ capabilities = capabilities })
+
       lsp.omnisharp.setup({
         capabilities = capabilities,
         cmd = { "/home/aloussase/Projects/omnisharp/OmniSharp" },
