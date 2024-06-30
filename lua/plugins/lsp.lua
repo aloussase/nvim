@@ -11,6 +11,16 @@ return {
       -- dotnet tool install --global csharp-ls
       -- lsp.csharp_ls.setup({ capabilities = capabilities })
 
+      lsp.hls.setup({
+        filetypes = { "haskell", "cabal" },
+        settings = {
+          haskell = {
+            cabalFormattingProvider = "cabalfmt",
+            formattingProvider = "stylish-haskell"
+          }
+        }
+      })
+
       lsp.dartls.setup({ capabilities = capabilities })
       lsp.sourcekit.setup({ capabilities = capabilities })
 
@@ -144,8 +154,12 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       height = 5,
-      auto_open = true,
-      auto_close = true,
+      modes = {
+        diagnostics = {
+          auto_open  = true,
+          auto_close = true,
+        },
+      },
     },
   }
 }
